@@ -81,8 +81,8 @@ module ActiveModelSerializers
     #
     def fragment_serializer(name)
       klass      = serializer.class
-      cached     = "#{to_valid_const_name(name)}CachedSerializer"
-      non_cached = "#{to_valid_const_name(name)}NonCachedSerializer"
+      cached     = "Cached#{to_valid_const_name(klass.name)}"
+      non_cached = "NonCached#{to_valid_const_name(klass.name)}"
 
       cached_serializer     = get_or_create_serializer(cached)
       non_cached_serializer = get_or_create_serializer(non_cached)

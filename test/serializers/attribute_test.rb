@@ -33,7 +33,7 @@ module ActiveModel
 
         assert_equal([:title], serializer_class._attributes)
       end
-
+      
       def test_id_attribute_override
         serializer = Class.new(ActiveModel::Serializer) do
           attribute :name, key: :id
