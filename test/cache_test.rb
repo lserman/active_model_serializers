@@ -1,6 +1,12 @@
 require 'test_helper'
 require 'tmpdir'
 require 'tempfile'
+
+InheritedRoleSerializer = Class.new(RoleSerializer) do
+  cache key: 'inherited_role', only: [:name, :special_attribute]
+  attribute :special_attribute
+end
+
 module ActiveModelSerializers
   class CacheTest < ActiveSupport::TestCase
     def setup

@@ -80,9 +80,11 @@ module ActiveModelSerializers
     #     User_AdminNonCachedSerializer
     #
     def fragment_serializer
-      klass      = serializer.class
-      cached     = "Cached#{to_valid_const_name(klass.name)}"
-      non_cached = "NonCached#{to_valid_const_name(klass.name)}"
+      klass                 = serializer.class
+      serializer_class_name = to_valid_const_name(klass.name)
+
+      cached     = "Cached#{serializer_class_name}"
+      non_cached = "NonCached#{serializer_class_name}"
 
       cached_serializer     = get_or_create_serializer(cached)
       non_cached_serializer = get_or_create_serializer(non_cached)

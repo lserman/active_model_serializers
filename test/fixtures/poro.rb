@@ -139,11 +139,6 @@ RoleSerializer = Class.new(ActiveModel::Serializer) do
   belongs_to :author
 end
 
-InheritedRoleSerializer = Class.new(RoleSerializer) do
-  cache key: 'inherited_role', only: [:name, :special_attribute]
-  attribute :special_attribute
-end
-
 LikeSerializer = Class.new(ActiveModel::Serializer) do
   attributes :id, :time
 
